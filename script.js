@@ -13,8 +13,10 @@ function resizeCanvas() {
 
 function handleMouseMove(event) {
   event.preventDefault();
-  mousePos.x = event.clientX || event.touches[0].clientX;
-  mousePos.y = event.clientY || event.touches[0].clientY;
+  mousePos.x = event.clientX
+  mousePos.y = event.clientY
+  // mousePos.x = event.clientX || event.touches[0].clientX;
+  // mousePos.y = event.clientY || event.touches[0].clientY;
 }
 
 function handleMouseDown() {
@@ -100,9 +102,9 @@ window.addEventListener('mousemove', handleMouseMove);
 window.addEventListener('mousedown', handleMouseDown);
 window.addEventListener('mouseup', handleMouseUp);
 
-window.addEventListener('touchmove', handleMouseMove, { passive: false });
-window.addEventListener('touchstart', handleMouseDown);
-window.addEventListener('touchend', handleMouseUp);
+// window.addEventListener('touchmove', handleMouseMove, { passive: false });
+// window.addEventListener('touchstart', handleMouseDown);
+// window.addEventListener('touchend', handleMouseUp);
 
 resizeCanvas();
 animate();
