@@ -99,5 +99,9 @@ window.addEventListener('mousemove', handleMouseMove);
 window.addEventListener('mousedown', handleMouseDown);
 window.addEventListener('mouseup', handleMouseUp);
 
+window.addEventListener('touchmove', handleMouseMove, { passive: false });
+window.addEventListener('touchstart', handleMouseDown);
+window.addEventListener('touchend', handleMouseUp);
+
 resizeCanvas();
 animate();
