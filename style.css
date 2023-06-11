@@ -8,3 +8,8 @@ body {
 canvas {
   display: block;
 }
+
+#canvas {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}

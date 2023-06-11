@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let gridSize = 15;
+let gridSize = 20;
 let mousePos = { x: 0, y: 0 };
 let isMouseDown = false;
 let waves = [];
@@ -30,24 +30,25 @@ function createWave() {
     startX: mousePos.x,
     startY: mousePos.y,
     radius: 0,
-    propagationSpeed: 2
+    propagationSpeed: 2,
   };
   waves.push(wave);
 }
 
 function drawGrid() {
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+  ctx.beginPath();
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+  ctx.lineWidth = 1;
 
   for (let x = 0; x < canvas.width; x += gridSize) {
     for (let y = 0; y < canvas.height; y += gridSize) {
       const displacement = calculateDisplacement(x, y);
-      const newX = x + displacement.x;
-      const newY = y + displacement.y;
-      ctx.beginPath();
-      ctx.arc(newX, newY, 1, 0, 2 * Math.PI);
-      ctx.fill();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + displacement.x, y + displacement.y);
     }
   }
+
+  ctx.stroke();
 }
 
 function calculateDisplacement(x, y) {
@@ -78,12 +79,11 @@ function drawWave() {
       waves.splice(index, 1);
     } else {
       wave.radius += wave.propagationSpeed;
-      wave.propagationSpeed *= 0.99999; // Gradually decrease propagation speed
-      wave.opacity -= 0.01; // Gradually decrease opacity
+      wave.propagationSpeed *= 0.9999; // Gradually decrease propagation speed
+      wave.opacity -= 0.001; // Gradually decrease opacity
     }
   });
 }
-
 
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
