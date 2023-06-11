@@ -12,8 +12,9 @@ function resizeCanvas() {
 }
 
 function handleMouseMove(event) {
-  mousePos.x = event.clientX;
-  mousePos.y = event.clientY;
+  event.preventDefault();
+  mousePos.x = event.clientX || event.touches[0].clientX;
+  mousePos.y = event.clientY || event.touches[0].clientY;
 }
 
 function handleMouseDown() {
