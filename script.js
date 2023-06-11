@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let gridSize = 12;
+let gridSize = 10;
 let mousePos = { x: 0, y: 0 };
 let isMouseDown = false;
 let waves = [];
@@ -30,7 +30,7 @@ function createWave() {
     startX: mousePos.x,
     startY: mousePos.y,
     radius: 0,
-    propagationSpeed: 5
+    propagationSpeed: Math.PI
   };
   waves.push(wave);
 }
@@ -59,7 +59,7 @@ function calculateDisplacement(x, y) {
     const distance = Math.sqrt(dx * dx + dy * dy);
     const maxRadius = wave.radius + gridSize;
     if (distance <= maxRadius) {
-      const displacement = gridSize * Math.sin((distance / maxRadius) * Math.PI);
+      const displacement = Math.PI * gridSize * Math.sin((distance / maxRadius) * Math.PI);
       totalDisplacement.x += displacement * (dx / distance);
       totalDisplacement.y += displacement * (dy / distance);
     }
