@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let gridSize = 15;
+let gridSize = 12;
 let mousePos = { x: 0, y: 0 };
 let isMouseDown = false;
 let waves = [];
@@ -30,7 +30,7 @@ function createWave() {
     startX: mousePos.x,
     startY: mousePos.y,
     radius: 0,
-    propagationSpeed: 2
+    propagationSpeed: 5
   };
   waves.push(wave);
 }
@@ -79,7 +79,7 @@ function drawWave() {
     } else {
       wave.radius += wave.propagationSpeed;
       wave.propagationSpeed *= 0.99999; // Gradually decrease propagation speed
-      wave.opacity -= 0.01; // Gradually decrease opacity
+      wave.opacity -= 0.00001; // Gradually decrease opacity
     }
   });
 }
