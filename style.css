@@ -1,15 +1,52 @@
 body {
+  background-color: black;
   margin: 0;
   padding: 0;
-  background-color: black;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Times New Roman", Times, serif; /* Change the font to Times New Roman */
 }
 
-canvas {
+.container {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: white;
+  font-size: 48px;
+  margin-top: 30px; /* Increase top margin for title */
+  margin-bottom: 40px; /* Increase bottom margin for title */
+}
+
+.line {
+  width: 60%;
+  border: none;
+  border-top: 2px solid white;
+  margin: 0 auto;
+}
+
+.links {
+  margin-top: 20px;
+}
+
+.links a {
   display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  margin-top: 30px; /* Increase top margin for each link */
+  margin-bottom: 30px; /* Increase bottom margin for each link */
 }
 
-#canvas {
-    transform-style: preserve-3d;
-    perspective: 1000px;
+.links a:hover {
+  text-decoration: underline; /* Underline the links on hover */
+  transition: 0.3s; /* Add transition for smooth underline effect */
 }
