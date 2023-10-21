@@ -1,1 +1,5 @@
 # gravity
+
+- wave
+- light
+- particle
